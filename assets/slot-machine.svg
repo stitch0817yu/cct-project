@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 480" role="img" aria-label="Slot machine">
+  <defs>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c92642"/>
+      <stop offset="0.5" stop-color="#a01830"/>
+      <stop offset="1" stop-color="#6d0e20"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe08a"/>
+      <stop offset="0.5" stop-color="#f6c445"/>
+      <stop offset="1" stop-color="#c99218"/>
+    </linearGradient>
+    <linearGradient id="crown" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff3b0"/>
+      <stop offset="1" stop-color="#f0b429"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eef0f5"/>
+      <stop offset="0.5" stop-color="#b9bcc8"/>
+      <stop offset="1" stop-color="#82879a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- feet -->
+  <rect x="70" y="430" width="58" height="16" rx="8" fill="#2a0810"/>
+  <rect x="332" y="430" width="58" height="16" rx="8" fill="#2a0810"/>
+
+  <!-- main body -->
+  <rect x="40" y="36" width="380" height="410" rx="26" fill="url(#body)" stroke="url(#gold)" stroke-width="5"/>
+  <rect x="58" y="70" width="344" height="360" rx="18" fill="#7d0d24" opacity="0.45"/>
+
+  <!-- corner screws -->
+  <g fill="#e8b93a">
+    <circle cx="62" cy="58" r="3.5"/><circle cx="398" cy="58" r="3.5"/>
+    <circle cx="62" cy="424" r="3.5"/><circle cx="398" cy="424" r="3.5"/>
+  </g>
+
+  <!-- crown marquee -->
+  <rect x="62" y="14" width="336" height="48" rx="24" fill="url(#crown)" stroke="#8a6a12" stroke-width="2"/>
+  <g fill="#fff6c9">
+    <circle cx="82" cy="24" r="4.5"/><circle cx="114" cy="24" r="4.5"/><circle cx="146" cy="24" r="4.5"/>
+    <circle cx="178" cy="24" r="4.5"/><circle cx="210" cy="24" r="4.5"/><circle cx="242" cy="24" r="4.5"/>
+    <circle cx="274" cy="24" r="4.5"/><circle cx="306" cy="24" r="4.5"/><circle cx="338" cy="24" r="4.5"/><circle cx="370" cy="24" r="4.5"/>
+  </g>
+  <text x="230" y="49" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="900" fill="#5b3c06">777</text>
+
+  <!-- reel window -->
+  <rect x="64" y="120" width="332" height="120" rx="12" fill="#0e0918" stroke="url(#gold)" stroke-width="4"/>
+  <rect x="72" y="128" width="316" height="104" rx="8" fill="#07040d" opacity="0.7"/>
+
+  <!-- reel labels -->
+  <g font-family="sans-serif" font-size="15" font-weight="700" fill="#f6c445" text-anchor="middle">
+    <text x="116" y="110">國菜</text>
+    <text x="230" y="110">菜式</text>
+    <text x="344" y="110">餐廳</text>
+  </g>
+
+  <!-- payline -->
+  <polygon points="230,252 220,242 240,242" fill="#ffe08a"/>
+  <text x="230" y="284" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#f6c445">中獎線 PAYLINE</text>
+
+  <!-- coin tray -->
+  <rect x="118" y="310" width="224" height="44" rx="22" fill="url(#metal)" stroke="#5a5e6b" stroke-width="2"/>
+  <rect x="140" y="326" width="180" height="12" rx="6" fill="#5c6070" opacity="0.6"/>
+
+  <!-- PULL -->
+  <text x="230" y="398" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="900" fill="#ffe08a" letter-spacing="6">PULL</text>
+</svg>

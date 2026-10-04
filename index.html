@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#14101f">
+<title>食乜好？What to Eat? — 決定小幫手</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="app-header">
+  <div class="brand" data-back-home>
+    <span class="brand-emoji">🍜</span>
+    <div class="brand-text">
+      <div class="brand-zh">食乜好？</div>
+      <div class="brand-en">What to Eat?</div>
+    </div>
+  </div>
+  <div class="header-actions">
+    <button id="keyChip" class="location-chip" type="button" title="設定 API 金鑰 Set API keys">🔑 金鑰 <span class="chip-en">Keys</span></button>
+    <button id="locationChip" class="location-chip" type="button" title="設定位置 Set location">📍 定位中… <span class="chip-en">Locating…</span></button>
+  </div>
+</header>
+
+<main id="app">
+  <!-- HOME -->
+  <section id="view-home" class="view is-active">
+    <div class="hero">
+      <h1 class="hero-title">揀嘢食好難？<span>Let the game decide.</span></h1>
+      <p class="hero-sub">三種玩法，幫你輕鬆揀定今日食乜！<span>Three games to solve your food dilemma.</span></p>
+    </div>
+    <div class="mode-grid">
+      <button class="mode-card" data-mode="slot" type="button">
+        <div class="mode-emoji">🎰</div>
+        <div class="mode-zh">老虎機</div>
+        <div class="mode-en">Slot Machine</div>
+        <div class="mode-desc">毫無頭緒？拉桿抽獎！<span>No idea? Pull the lever.</span></div>
+      </button>
+      <button class="mode-card" data-mode="gacha" type="button">
+        <div class="mode-emoji">🥚</div>
+        <div class="mode-zh">扭蛋</div>
+        <div class="mode-en">Gachapon</div>
+        <div class="mode-desc">已有心水菜式？扭出餐廳！<span>Pick a dish, get restaurants.</span></div>
+      </button>
+      <button class="mode-card" data-mode="lottery" type="button">
+        <div class="mode-emoji">🎟️</div>
+        <div class="mode-zh">彩票</div>
+        <div class="mode-en">Lottery</div>
+        <div class="mode-desc">有咗餐廳？刮出餐牌！<span>Have a place? Scratch the menu.</span></div>
+      </button>
+    </div>
+    <p class="footnote">由 Google Places 提供餐廳資料 · Restaurant data by Google Places</p>
+  </section>
+
+  <!-- SLOT -->
+  <section id="view-slot" class="view">
+    <button class="back-btn" data-back-home type="button">← 返回 Back</button>
+    <h2 class="mode-title">🎰 老虎機 <span>Slot Machine</span></h2>
+    <p class="mode-hint">毫無頭緒？拉一拉桿，命運幫你揀！<span>No idea? Pull the lever and let fate choose.</span></p>
+    <div class="slot-machine">
+      <img class="slot-img" src="assets/slot-machine.svg" alt="老虎機 Slot machine">
+      <div class="reels">
+        <div class="reel" id="reel-cuisine"><div class="reel-strip"></div></div>
+        <div class="reel" id="reel-dish"><div class="reel-strip"></div></div>
+        <div class="reel" id="reel-restaurant"><div class="reel-strip"></div></div>
+      </div>
+      <button class="lever" id="slot-lever" type="button" aria-label="拉桿 Pull lever">
+        <svg viewBox="0 0 40 180" aria-hidden="true">
+          <defs>
+            <linearGradient id="leverRod" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#d8b04a"/><stop offset="0.5" stop-color="#f9e08a"/><stop offset="1" stop-color="#b98f26"/>
+            </linearGradient>
+            <radialGradient id="leverBall" cx="0.35" cy="0.3" r="0.8">
+              <stop offset="0" stop-color="#ffa1cf"/><stop offset="0.7" stop-color="#e0448d"/><stop offset="1" stop-color="#a32260"/>
+            </radialGradient>
+          </defs>
+          <circle cx="20" cy="20" r="17" fill="url(#leverBall)" stroke="#7c1247" stroke-width="2"/>
+          <rect x="15.5" y="28" width="9" height="148" rx="4.5" fill="url(#leverRod)" stroke="#8a6a12" stroke-width="1"/>
+        </svg>
+      </button>
+    </div>
+    <div class="slot-actions">
+      <button id="slot-pull" class="big-btn" type="button">🎰 拉桿 <span>PULL</span></button>
+    </div>
+    <div id="slot-result" class="result-panel hidden"></div>
+  </section>
+
+  <!-- GACHA -->
+  <section id="view-gacha" class="view">
+    <button class="back-btn" data-back-home type="button">← 返回 Back</button>
+    <h2 class="mode-title">🥚 扭蛋 <span>Gachapon</span></h2>
+    <p class="mode-hint">揀定菜式，扭蛋幫你搵三間高分餐廳！<span>Pick a cuisine and twist for top-rated spots.</span></p>
+    <div class="chip-row" id="gacha-cuisines"></div>
+    <div class="gacha-stage">
+      <div class="gacha-machine">
+        <img class="gacha-img" src="assets/gachapon-machine.svg" alt="扭蛋機 Gachapon machine">
+        <button id="gacha-twist" class="gacha-knob" type="button" aria-label="轉動扭掣扭蛋 Twist the knob">
+          <svg viewBox="0 0 100 100" aria-hidden="true">
+            <defs>
+              <radialGradient id="gpKnob" cx="0.35" cy="0.3" r="0.9">
+                <stop offset="0" stop-color="#ff9a8a"/><stop offset="0.6" stop-color="#ff6f61"/><stop offset="1" stop-color="#d94b3d"/>
+              </radialGradient>
+            </defs>
+            <circle cx="50" cy="50" r="48" fill="url(#gpKnob)" stroke="#b83a2e" stroke-width="3"/>
+            <circle cx="50" cy="50" r="30" fill="#fff8ec" stroke="#b83a2e" stroke-width="2"/>
+            <circle cx="50" cy="16" r="8" fill="#e04a3e" stroke="#a52e24" stroke-width="2"/>
+            <g stroke="#d8c6a4" stroke-width="2.5" stroke-linecap="round">
+              <line x1="50" y1="22" x2="50" y2="28"/>
+              <line x1="50" y1="72" x2="50" y2="78"/>
+              <line x1="22" y1="50" x2="28" y2="50"/>
+              <line x1="72" y1="50" x2="78" y2="50"/>
+            </g>
+          </svg>
+        </button>
+        <div id="gacha-capsule" class="capsule hidden">
+          <div class="capsule-top"><span class="capsule-shine" aria-hidden="true"></span></div>
+          <div class="capsule-bottom"></div>
+          <span class="capsule-rim" aria-hidden="true"></span>
+          <div class="capsule-body" id="gacha-capsule-body">?</div>
+        </div>
+      </div>
+      <p class="gacha-hint">轉動扭掣扭出好運 · Turn the knob to get a capsule</p>
+    </div>
+    <div id="gacha-reveal" class="reveal-panel hidden"></div>
+    <div id="gacha-results" class="results"></div>
+  </section>
+
+  <!-- LOTTERY -->
+  <section id="view-lottery" class="view">
+    <button class="back-btn" data-back-home type="button">← 返回 Back</button>
+    <h2 class="mode-title">🎟️ 彩票 <span>Lottery</span></h2>
+    <p class="mode-hint">影低餐牌或手動輸入，再刮出你今日嘅餐單！<span>Snap the menu or type it in, then scratch your ticket.</span></p>
+    <div class="lottery-tabs">
+      <button class="tab is-active" data-lottery-tab="photo" type="button">📷 影餐牌 Photo</button>
+      <button class="tab" data-lottery-tab="manual" type="button">✍️ 手動輸入 Manual</button>
+    </div>
+    <div id="lottery-panel-photo" class="tab-panel">
+      <div class="menu-upload">
+        <input id="lottery-photo" type="file" accept="image/*" capture="environment" hidden>
+        <label for="lottery-photo" class="capture-btn" id="lottery-capture-label">
+          <span class="capture-icon">📷</span>
+          <span class="capture-zh">影餐牌 Take a photo</span>
+          <span class="capture-en">上載餐牌相片，AI 自動分類 · Upload a menu photo to scan</span>
+        </label>
+        <div id="lottery-preview" class="capture-preview hidden">
+          <img id="lottery-preview-img" alt="餐牌預覽 Menu preview">
+          <label for="lottery-photo" class="retake-btn">↺ 重影 Retake</label>
+        </div>
+        <p id="lottery-status" class="capture-status hidden"></p>
+      </div>
+    </div>
+    <div id="lottery-panel-manual" class="tab-panel hidden">
+      <div id="lottery-manual-form" class="manual-form"></div>
+    </div>
+    <div id="lottery-ticket" class="ticket hidden"></div>
+    <div id="lottery-summary" class="summary hidden"></div>
+  </section>
+</main>
+
+<div id="modal-root"></div>
+<div id="toast" class="toast" role="status"></div>
+<div id="loader" class="loader hidden"><div class="loader-spinner"></div><div class="loader-text">載入中… Loading…</div></div>
+
+<script src="js/config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/api.js"></script>
+<script src="js/deepseek.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/keys.js"></script>
+<script src="js/mode-slot.js"></script>
+<script src="js/mode-gacha.js"></script>
+<script src="js/mode-lottery.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

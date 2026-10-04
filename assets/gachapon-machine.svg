@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 480" role="img" aria-label="Gachapon machine">
+  <defs>
+    <linearGradient id="gpBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff8ec"/>
+      <stop offset="1" stop-color="#f0e0c4"/>
+    </linearGradient>
+    <linearGradient id="gpDome" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eaf7f6"/>
+      <stop offset="1" stop-color="#cdebe8"/>
+    </linearGradient>
+    <linearGradient id="gpTray" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e9dcc0"/>
+      <stop offset="1" stop-color="#d7c4a1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- base -->
+  <rect x="60" y="452" width="220" height="16" rx="8" fill="#2f8f83"/>
+
+  <!-- body -->
+  <rect x="40" y="140" width="260" height="300" rx="22" fill="url(#gpBody)" stroke="#2f8f83" stroke-width="4"/>
+  <rect x="52" y="152" width="236" height="276" rx="16" fill="#ffffff" opacity="0.35"/>
+
+  <!-- dome (capsule container) -->
+  <rect x="66" y="18" width="208" height="132" rx="18" fill="url(#gpDome)" stroke="#2f8f83" stroke-width="4"/>
+
+  <!-- capsules inside dome -->
+  <g>
+    <g><circle cx="92" cy="46" r="13" fill="#f472b6"/><rect x="80" y="44" width="24" height="4" rx="2" fill="#fdf0f7"/></g>
+    <g><circle cx="128" cy="42" r="13" fill="#a78bfa"/><rect x="116" y="40" width="24" height="4" rx="2" fill="#f6f2ff"/></g>
+    <g><circle cx="164" cy="48" r="13" fill="#ffd166"/><rect x="152" y="46" width="24" height="4" rx="2" fill="#fff8e0"/></g>
+    <g><circle cx="200" cy="43" r="13" fill="#4fd1c5"/><rect x="188" y="41" width="24" height="4" rx="2" fill="#eafcf9"/></g>
+    <g><circle cx="236" cy="47" r="13" fill="#ff9f43"/><rect x="224" y="45" width="24" height="4" rx="2" fill="#fff3e3"/></g>
+    <g><circle cx="110" cy="78" r="13" fill="#4fd1c5"/><rect x="98" y="76" width="24" height="4" rx="2" fill="#eafcf9"/></g>
+    <g><circle cx="146" cy="82" r="13" fill="#ff9f43"/><rect x="134" y="80" width="24" height="4" rx="2" fill="#fff3e3"/></g>
+    <g><circle cx="182" cy="76" r="13" fill="#f472b6"/><rect x="170" y="74" width="24" height="4" rx="2" fill="#fdf0f7"/></g>
+    <g><circle cx="218" cy="80" r="13" fill="#a78bfa"/><rect x="206" y="78" width="24" height="4" rx="2" fill="#f6f2ff"/></g>
+    <g><circle cx="128" cy="110" r="13" fill="#ffd166"/><rect x="116" y="108" width="24" height="4" rx="2" fill="#fff8e0"/></g>
+    <g><circle cx="164" cy="114" r="13" fill="#f472b6"/><rect x="152" y="112" width="24" height="4" rx="2" fill="#fdf0f7"/></g>
+    <g><circle cx="200" cy="108" r="13" fill="#4fd1c5"/><rect x="188" y="106" width="24" height="4" rx="2" fill="#eafcf9"/></g>
+  </g>
+
+  <!-- coin slot -->
+  <g>
+    <circle cx="170" cy="196" r="11" fill="#f6c445" stroke="#c99218" stroke-width="2"/>
+    <circle cx="170" cy="196" r="5" fill="none" stroke="#b88412" stroke-width="1.5"/>
+    <rect x="150" y="216" width="40" height="10" rx="3" fill="#22303c"/>
+  </g>
+
+  <!-- knob socket -->
+  <circle cx="170" cy="275" r="46" fill="#dbe9e7" stroke="#2f8f83" stroke-width="3"/>
+  <g stroke="#9fc7c1" stroke-width="2" stroke-linecap="round">
+    <line x1="170" y1="221" x2="170" y2="233"/>
+    <line x1="170" y1="317" x2="170" y2="329"/>
+    <line x1="113" y1="275" x2="125" y2="275"/>
+    <line x1="215" y1="275" x2="227" y2="275"/>
+  </g>
+
+  <!-- label -->
+  <text x="170" y="340" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#2f8f83">扭蛋 GACHA</text>
+
+  <!-- dispense chute -->
+  <rect x="90" y="348" width="160" height="46" rx="10" fill="#22303c"/>
+  <rect x="98" y="356" width="144" height="30" rx="6" fill="#0d141b" opacity="0.85"/>
+
+  <!-- tray -->
+  <rect x="82" y="410" width="176" height="44" rx="14" fill="url(#gpTray)" stroke="#2f8f83" stroke-width="4"/>
+</svg>
